@@ -1,0 +1,482 @@
+:root {
+    --ink: #111c2a;
+    --muted: #596575;
+    --line: #e1e7ed;
+    --soft: #f3f6f9;
+    --blue: #0876ed;
+    --yellow: #ffb900;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #fff;
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.product-page {
+    max-width: 1600px;
+    padding: 12px 16px 24px;
+}
+
+.product-top {
+    display: grid;
+    grid-template-columns: minmax(420px, 1.15fr) minmax(420px, 1.25fr) 174px;
+    gap: 16px;
+    align-items: start;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 94px;
+    gap: 12px;
+}
+
+.main-image-frame {
+    display: flex;
+    min-height: 334px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: linear-gradient(135deg, #f3f5f8, #e9edf2);
+}
+
+.main-image {
+    width: 100%;
+    height: 334px;
+    object-fit: contain;
+}
+
+.thumbnail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.thumbnail {
+    width: 94px;
+    height: 77px;
+    padding: 4px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--soft);
+    cursor: pointer;
+}
+
+.thumbnail.active {
+    border: 2px solid var(--blue);
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.product-details {
+    padding: 0 24px;
+}
+
+.product-tag {
+    display: inline-block;
+    margin: 0 0 8px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    background: var(--blue);
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.product-details h1 {
+    margin: 0 0 6px;
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 750;
+    letter-spacing: -0.8px;
+}
+
+.product-subtitle {
+    margin: 0 0 12px;
+    color: var(--muted);
+    font-size: 17px;
+}
+
+.rating-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 18px;
+    color: var(--muted);
+}
+
+.stars,
+.review-stars {
+    color: var(--yellow);
+    letter-spacing: 1px;
+}
+
+.stars {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.rating-score {
+    color: #394657;
+}
+
+.product-price {
+    margin: 0 0 17px;
+    font-size: 32px;
+    font-weight: 750;
+}
+
+.stock-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 20px;
+    padding: 9px 13px;
+    border-radius: 8px;
+    background: #d8f3e3;
+    color: #168442;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.stock-badge i {
+    font-size: 19px;
+}
+
+.purchase-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.purchase-actions .btn {
+    min-height: 54px;
+    border-radius: 7px;
+    font-weight: 700;
+}
+
+.add-to-cart {
+    flex: 1.2;
+    background: var(--blue);
+    font-size: 17px;
+}
+
+.add-to-cart i,
+.favorite-button i {
+    margin-right: 7px;
+    font-size: 20px;
+}
+
+.favorite-button {
+    flex: 1;
+    color: #394657;
+    font-size: 15px;
+}
+
+.manufacturer-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 14px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: #fff;
+}
+
+.manufacturer-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.manufacturer-icon,
+.meta-icon {
+    display: grid;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    place-items: center;
+    color: #182534;
+    font-size: 19px;
+}
+
+.manufacturer-icon {
+    border-radius: 5px;
+    background: #f0f3f7;
+}
+
+.meta-label {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.manufacturer-row p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.product-tabs {
+    display: flex;
+    gap: 4px;
+    margin-top: 20px;
+    border-bottom: 1px solid var(--line);
+}
+
+.tab-link {
+    padding: 10px 12px;
+    border-bottom: 2px solid transparent;
+    color: #3e4a5a;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.tab-link.active {
+    border-bottom-color: var(--blue);
+    color: var(--blue);
+}
+
+.product-bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(230px, 0.9fr) minmax(300px, 1.3fr);
+    gap: 20px;
+    padding-top: 0;
+}
+
+.description-column,
+.specifications-column,
+.reviews-column {
+    min-width: 0;
+    padding-top: 16px;
+}
+
+.specifications-column,
+.reviews-column {
+    padding-left: 20px;
+    border-left: 1px solid var(--line);
+}
+
+.description-copy {
+    margin: 0 0 22px;
+    color: #4b5665;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.feature-card {
+    display: flex;
+    min-height: 124px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 7px;
+    background: var(--soft);
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.feature-card i {
+    font-size: 27px;
+}
+
+.product-bottom h2 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: 750;
+}
+
+.specifications-card {
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+}
+
+.specifications-card p {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 6px 0;
+    color: #414c5b;
+    font-size: 14px;
+}
+
+.specifications-card i {
+    width: 17px;
+    color: #162333;
+    font-size: 16px;
+}
+
+.comment {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+}
+
+.review-avatar {
+    display: grid;
+    width: 35px;
+    min-width: 35px;
+    height: 35px;
+    place-items: center;
+    border-radius: 50%;
+    background: #647584;
+    color: white;
+    font-weight: 700;
+}
+
+.review-content {
+    min-width: 0;
+    flex: 1;
+}
+
+.review-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.review-heading p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.review-heading time {
+    color: #8792a0;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.review-stars {
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+.review-content > p {
+    margin: 0;
+    color: #4b5665;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.all-reviews {
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.all-reviews i {
+    margin-left: 4px;
+}
+
+@media (max-width: 1100px) {
+    .product-top {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    }
+
+    .manufacturer-card {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .product-details {
+        padding: 0 8px;
+    }
+
+    .product-bottom {
+        grid-template-columns: 1.4fr 1fr;
+    }
+
+    .reviews-column {
+        grid-column: 1 / -1;
+        padding-left: 0;
+        border-left: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .product-page {
+        padding: 10px 12px 20px;
+    }
+
+    .product-top {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery {
+        grid-template-columns: minmax(0, 1fr) 72px;
+    }
+
+    .main-image-frame,
+    .main-image {
+        min-height: 250px;
+        height: 250px;
+    }
+
+    .thumbnail {
+        width: 72px;
+        height: 56px;
+    }
+
+    .product-details {
+        padding: 8px 0 0;
+    }
+
+    .manufacturer-card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .purchase-actions {
+        flex-direction: column;
+    }
+
+    .product-bottom {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .specifications-column,
+    .reviews-column {
+        grid-column: auto;
+        padding-left: 0;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .product-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
