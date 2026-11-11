@@ -32,8 +32,29 @@ function fetchFile() {
 
     const http = new XMLHttpRequest();
     http.onload = function () {
-        const productObj = JSON.parse(this.responseText)
-        load(productObj)
+        if (http.status === 200) {
+            const productObj = JSON.parse(this.responseText)
+            load(productObj)
+
+        }
+        else {
+            const retry = confirm(
+                "Nem sikerült betölteni az adatokat. Szeretnéd újratölteni az oldalt?"
+            );
+
+            if (retry) {
+                window.location.reload();
+            }
+        }
+    }
+    http.onerror = function () {
+        const retry = confirm(
+            "A kapcsolódás sikertelen. Szeretnéd újrapróbálni?"
+        );
+
+        if (retry) {
+            window.location.reload();
+        }
     }
     http.open("GET", "termek.json")
     http.send()
