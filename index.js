@@ -1,7 +1,7 @@
 
 let test = {};
 
-document.addEventListener("DOMContentLoaded", 
+document.addEventListener("DOMContentLoaded",
     fetchFile()
 )
 
@@ -14,7 +14,6 @@ const elements = {
     stock: document.getElementById("p-stock"),
     manufacturerName: document.getElementById("manuf-name"),
     manufacturerCountry: document.getElementById("manuf-country"),
-    description: document.getElementById("desc"),
     info: document.getElementById("info"),
     processor: document.getElementById("proc"),
     ram: document.getElementById("ram"),
@@ -24,7 +23,7 @@ const elements = {
     commentText1: document.getElementById("comm1"),
     commentName2: document.getElementById("name2"),
     commentText2: document.getElementById("comm2"),
-    demo: document.getElementById("demo")
+
 };
 
 
@@ -38,17 +37,17 @@ function fetchFile() {
     }
     http.open("GET", "termek.json")
     http.send()
-    
+
 }
 
 
 function load(prodObj) {
-        elements.mainImg.src = prodObj.image;
+    elements.mainImg.src = prodObj.image;
     elements.mainImg.alt = prodObj.name;
 
     elements.productName.textContent = prodObj.name;
     elements.productDescription.textContent = prodObj.description;
-    elements.description.textContent = prodObj.description;
+
 
     elements.productRating.textContent =
         `★★★★★ ${prodObj.rating} (${prodObj.reviews.length} értékelés)`;
@@ -70,11 +69,16 @@ function load(prodObj) {
     ];
 
     featureElements.forEach((element, index) => {
-        element.textContent = prodObj.features[index] ?? "";
+        element.textContent = prodObj.features[index];
     });
 
-    const reviewCards = elements.comments.querySelectorAll(".comment");
+    const reviews = prodObj.reviews;
 
-    
-    
+    elements.commentName1.innerHTML = reviews[0].user;
+    elements.commentText1.innerHTML = reviews[0].comment;
+    elements.commentName2.innerHTML = reviews[1].user;
+    elements.commentText2.innerHTML = reviews[1].comment;
+
+
+
 }
